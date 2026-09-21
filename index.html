@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0074D6" />
+  <meta name="description" content="Program Studi S3 Ilmu Pendidikan Pascasarjana FKIP Universitas Sebelas Maret (UNS) — Jalur masuk, kurikulum, dosen pakar, riset Scopus, dan pendaftaran." />
+  <title>S3 Ilmu Pendidikan | Pascasarjana FKIP UNS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Palet mengikuti pola visual portal UNS: blue–cyan, yellow accent, dark footer */
+      --uns-blue:#0074D6;
+      --uns-blue-2:#009BDD;
+      --uns-blue-3:#005AA8;
+      --uns-cyan:#00A8E8;
+      --uns-yellow:#FFDE35;
+      --uns-yellow-2:#F5C91F;
+      --uns-teal:#047EA9;
+      --ink:#1A232E;
+      --muted:#5C6E82;
+      --line:#E2E9F0;
+      --soft:#F4F8FC;
+      --white:#FFFFFF;
+      --footer:#141A22;
+      --shadow:0 12px 32px rgba(0,73,132,.12);
+      --shadow-hover:0 20px 40px rgba(0,73,132,.18);
+      --max:1180px;
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Plus Jakarta Sans","Poppins","Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .container{width:min(calc(100% - 36px),var(--max));margin-inline:auto}
+
+    /* --- Program nav, sticky di paling depan di atas main header & konten --- */
+    .program-nav{
+      position:sticky;top:0;z-index:1000;
+      background:#078AC8;color:#fff;
+      border-bottom:5px solid var(--uns-yellow);
+      box-shadow:0 4px 16px rgba(0,70,120,.12);
+    }
+    .program-nav .container{height:46px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .program-name{font-size:12px;font-weight:900;letter-spacing:.03em;white-space:nowrap}
+    .program-menu{
+      display:flex;align-items:center;gap:38px;font-size:12px;font-weight:800;
+      white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .program-menu::-webkit-scrollbar{display:none}
+    .program-menu a{transition:.15s ease;color:#fff;opacity:.95}
+    .program-menu a:hover{color:var(--uns-yellow);opacity:1}
+    .nav-cta{padding:8px 14px;white-space:nowrap;background:var(--uns-yellow);color:#183143;border-radius:4px;font-weight:900;font-size:12px;transition:.18s ease}
+    .nav-cta:hover{background:#fff;color:var(--uns-blue);transform:translateY(-1px)}
+
+    /* --- Main blue header --- */
+    .site-header{
+      background:linear-gradient(98deg,var(--uns-blue-2) 0%,var(--uns-blue) 72%);
+      color:#fff;
+      position:relative;
+      z-index:10;
+    }
+    .header-main{height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}
+    .logo-box{
+      width:54px;height:54px;padding:4px;border-radius:50%;background:#ffffff;
+      display:grid;place-items:center;flex:0 0 auto;
+      box-shadow:0 2px 8px rgba(0,40,90,.18);
+      overflow:hidden;
+    }
+    .logo-img{width:100%;height:100%;object-fit:contain;display:block}
+    .brand-copy{min-width:0}
+    .brand-copy strong{display:block;font-size:16px;line-height:1.15;letter-spacing:.01em;font-weight:800}
+    .brand-copy span{display:block;font-size:11px;opacity:.92;margin-top:3px}
+    .header-search{
+      min-width:255px;display:flex;height:31px;border-radius:3px;overflow:hidden;background:#fff;
+      box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);cursor:pointer;
+    }
+    .header-search span{flex:1;color:#7B8791;font-size:10px;display:flex;align-items:center;padding:0 10px}
+    .header-search b{width:36px;display:grid;place-items:center;background:#0C8FC5;color:#fff;font-size:14px}
+
+    /* --- Hero Section --- */
+    .hero{
+      position:relative;overflow:hidden;color:#fff;
+      background:
+        linear-gradient(90deg,rgba(0,116,214,.96),rgba(0,168,232,.82)),
+        radial-gradient(circle at 80% 20%,rgba(255,255,255,.28),transparent 28%);
+      min-height:470px;
+    }
+    .hero:before{
+      content:"";position:absolute;inset:0;opacity:.16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.18) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.18) 1px,transparent 1px);
+      background-size:84px 84px;
+      mask-image:linear-gradient(90deg,#000,transparent 85%);
+    }
+    .hero:after{
+      content:"UNS";position:absolute;right:5%;bottom:-78px;font-size:250px;font-weight:950;
+      color:rgba(255,255,255,.055);line-height:1;letter-spacing:-.08em;pointer-events:none;
+    }
+    .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:58px;padding:70px 0 74px}
+    .breadcrumbs{font-size:11px;font-weight:700;opacity:.88;margin-bottom:16px}
+    .hero-kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--uns-yellow)}
+    .hero-kicker:before{content:"";width:34px;height:4px;background:var(--uns-yellow)}
+    .hero h1{font-size:clamp(40px,5.8vw,68px);line-height:1.04;margin:13px 0 18px;letter-spacing:-.04em;max-width:720px;font-weight:900}
+    .hero h1 span{color:var(--uns-yellow);text-shadow:0 4px 20px rgba(0,0,0,.15)}
+    .hero p{font-size:16.5px;max-width:690px;color:#EAF7FF;margin:0 0 29px;line-height:1.6}
+    .hero-actions{display:flex;gap:11px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border-radius:5px;font-weight:900;font-size:12px;border:1px solid transparent;transition:.18s ease;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.18)}
+    .btn-yellow{background:var(--uns-yellow);color:#17364B}
+    .btn-yellow:hover{background:#fff;color:var(--uns-blue)}
+    .btn-outline{border-color:rgba(255,255,255,.72);color:#fff;background:rgba(255,255,255,.06)}
+    .btn-outline:hover{background:#fff;color:var(--uns-blue)}
+    .btn-blue{background:var(--uns-blue);color:#fff}
+    .btn-blue:hover{background:var(--uns-blue-3)}
+
+    /* Hero Card */
+    .hero-card{
+      background:rgba(255,255,255,.96);color:var(--ink);border-radius:12px;padding:25px;
+      box-shadow:0 22px 55px rgba(0,57,105,.22);border-top:6px solid var(--uns-yellow);
+    }
+    .hero-card-label{font-size:11px;font-weight:900;color:var(--uns-teal);text-transform:uppercase;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center}
+    .hero-card-label .tag{background:#E0F2FE;color:#0369A1;padding:3px 8px;border-radius:4px;font-size:10px}
+    .hero-card h3{margin:7px 0 10px;font-size:25px;color:#087CAF;line-height:1.2;font-weight:800}
+    .hero-card p{color:var(--muted);font-size:13px;margin:0 0 20px;line-height:1.55}
+    .hero-mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .hero-mini{padding:13px;background:#F2F8FC;border-radius:8px;border:1px solid #DCEBF3}
+    .hero-mini strong{display:block;color:var(--uns-blue);font-size:18px;font-weight:900}
+    .hero-mini span{font-size:10px;color:var(--muted);font-weight:700}
+    .accred{margin-top:13px;padding:11px 12px;border-radius:8px;background:#FFF8CD;border-left:4px solid var(--uns-yellow-2);font-size:11px;color:#5F5320;font-weight:800;display:flex;align-items:center;gap:8px}
+
+    /* --- Shared section components --- */
+    section{padding:78px 0}
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title.left{text-align:left}
+    .section-title h2{margin:0;color:var(--uns-teal);font-size:clamp(26px,3.2vw,39px);line-height:1.15;font-weight:800}
+    .title-line{width:74px;height:4px;background:var(--uns-yellow);margin:11px auto 0;border-radius:2px}
+    .left .title-line{margin-left:0}
+    .section-title p{max-width:720px;margin:16px auto 0;color:var(--muted);font-size:14px;line-height:1.6}
+    .left p{margin-left:0}
+
+    /* --- Promotion Highlights --- */
+    .highlights{background:#fff;padding-top:62px}
+    .highlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .highlight{border:1px solid var(--line);border-radius:10px;padding:23px 20px;background:#fff;box-shadow:0 5px 20px rgba(0,70,120,.05);position:relative;overflow:hidden;transition:.2s ease}
+    .highlight:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+    .highlight:before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;background:var(--uns-yellow)}
+    .highlight strong{display:block;color:var(--uns-blue);font-size:25px;line-height:1.15;font-weight:900}
+    .highlight span{font-size:11px;color:var(--muted);font-weight:700}
+
+    /* --- Poster-aligned information blocks --- */
+    .poster-summary{background:#fff;padding-top:10px}
+    .poster-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .poster-card{border:1px solid var(--line);border-radius:12px;padding:24px 20px;background:#fff;box-shadow:0 5px 20px rgba(0,70,120,.05);border-top:5px solid var(--uns-yellow)}
+    .poster-card h3{margin:0 0 8px;color:var(--uns-teal);font-size:18px;font-weight:800}.poster-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}.poster-card strong{color:var(--uns-blue)}
+
+    /* --- Cooperation Box --- */
+    .cooperation{background:#F9FBFD;padding:40px 0}
+    .cooperation-box{background:linear-gradient(100deg,#0877D2,#00A8E8);color:#fff;border-radius:14px;padding:34px;border-bottom:6px solid var(--uns-yellow);display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center;box-shadow:0 12px 30px rgba(0,80,150,.15)}
+    .cooperation-box h3{font-size:28px;margin:0 0 8px;font-weight:800}.cooperation-box p{margin:0;color:#EAF7FF;font-size:13.5px}.cooperation-badge{background:var(--uns-yellow);color:#17364B;padding:13px 18px;border-radius:8px;font-weight:950;white-space:nowrap;font-size:12px}
+
+    /* --- Core Study & Competency Cards --- */
+    .core-section{background:var(--soft)}
+    .core-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .core-card{background:#fff;border-radius:12px;padding:30px;border:1px solid var(--line);box-shadow:0 6px 24px rgba(0,70,120,.05);position:relative}
+    .core-card-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--soft)}
+    .core-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--uns-blue),var(--uns-cyan));color:#fff;display:grid;place-items:center;font-weight:900;font-size:20px;box-shadow:0 8px 20px rgba(0,116,214,.2);flex:0 0 auto}
+    .core-card h3{margin:0;color:var(--uns-teal);font-size:20px;font-weight:800}
+    .core-card p.subtitle{margin:3px 0 0;font-size:12px;color:var(--muted);font-weight:600}
+    .core-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .core-list li{display:flex;align-items:flex-start;gap:12px;font-size:13.5px;color:#2C3E50;line-height:1.5}
+    .core-list li:before{content:"✓";width:22px;height:22px;border-radius:50%;background:#E0F2FE;color:var(--uns-blue);display:grid;place-items:center;font-weight:900;font-size:11px;flex:0 0 auto;margin-top:2px}
+
+    /* --- Accreditation --- */
+    .accreditation{background:#fff}
+    .accredit-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:20px;align-items:stretch}
+    .accredit-main{position:relative;overflow:hidden;border-radius:12px;padding:30px;background:linear-gradient(145deg,#0877D2 0%,#049AD9 100%);color:#fff;box-shadow:0 14px 38px rgba(0,92,160,.16);border-bottom:5px solid var(--uns-yellow);display:flex;flex-direction:column;justify-content:space-between}
+    .accredit-main:after{content:"";position:absolute;width:190px;height:190px;border:34px solid rgba(255,255,255,.08);border-radius:50%;right:-72px;top:-70px;pointer-events:none}
+    .accredit-eyebrow{font-size:10px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#DDF4FF}
+    .accredit-grade{font-size:58px;line-height:.95;font-weight:950;letter-spacing:-.05em;color:var(--uns-yellow);margin:10px 0 8px}
+    .accredit-score{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border-radius:5px;background:rgba(255,255,255,.13);font-size:10px;font-weight:850;margin-bottom:19px}
+    .accredit-main h3{font-size:20px;margin:0 0 6px;font-weight:800}.accredit-main p{font-size:11.5px;color:#DDEFFA;margin:0 0 18px;max-width:500px}
+    .accredit-period{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:auto}
+    .accredit-period div{padding:12px;border:1px solid rgba(255,255,255,.19);border-radius:7px;background:rgba(255,255,255,.08)}
+    .accredit-period small{display:block;font-size:9px;opacity:.78;text-transform:uppercase;font-weight:800}.accredit-period strong{display:block;font-size:12px;margin-top:2px;font-weight:800}
+    .accredit-detail{border:1px solid var(--line);border-radius:12px;padding:27px;background:#F9FCFE}
+    .accredit-detail h3{margin:0 0 6px;color:var(--uns-teal);font-size:21px;font-weight:800}.accredit-detail>p{margin:0 0 18px;color:var(--muted);font-size:11.5px}
+    .accredit-data{display:grid;gap:0;border-top:1px solid #DCE8F0}
+    .accredit-row{display:grid;grid-template-columns:155px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #DCE8F0;font-size:11px}
+    .accredit-row span{color:#71828E;font-weight:700}.accredit-row strong{color:#174F70;overflow-wrap:anywhere;font-weight:700}
+    .accredit-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .mini-link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid #BED8E8;border-radius:4px;color:var(--uns-teal);font-size:10.5px;font-weight:850;background:#fff;transition:.15s ease}
+    .mini-link:hover{background:#F1F8FC}
+
+    /* --- Admission Pathways --- */
+    .pathways{background:linear-gradient(180deg,#0877D2 0%,#068EDB 100%);color:#fff;border-top:5px solid var(--uns-yellow);border-bottom:5px solid var(--uns-yellow)}
+    .pathways .section-title h2,.pathways .section-title p{color:#fff}.pathways .section-title p{opacity:.86}
+    .pathways .title-line{background:var(--uns-yellow)}
+    .path-grid{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+    .tab-list{display:grid;gap:10px}
+    .tab-btn{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.09);color:#fff;border-radius:7px;text-align:left;padding:17px 16px;cursor:pointer;font-weight:900;transition:.2s ease}
+    .tab-btn small{display:block;font-size:10px;margin-top:4px;opacity:.8;font-weight:600}
+    .tab-btn.active{background:#fff;color:var(--uns-blue);border-color:#fff;box-shadow:0 12px 30px rgba(0,55,100,.16)}
+    .path-panel{display:none;background:#fff;color:var(--ink);border-radius:10px;padding:28px;box-shadow:var(--shadow)}
+    .path-panel.active{display:block}
+    .path-panel h3{color:var(--uns-teal);font-size:24px;margin:0 0 8px;font-weight:800}.path-panel>p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
+    .path-points{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0}
+    .path-point{padding:13px;border:1px solid var(--line);background:#F8FBFD;border-radius:7px}
+    .path-point strong{display:block;font-size:12px;color:var(--uns-blue);font-weight:800}.path-point span{font-size:10.5px;color:var(--muted)}
+    .note{font-size:11px;background:#FFF8D8;border-left:4px solid var(--uns-yellow);padding:11px 12px;color:#645A2B;border-radius:4px;line-height:1.55}
+
+    /* --- Faculty & Experts --- */
+    .faculty{background:#F5F9FC}
+    .expert-banner{background:#fff;border:1px solid #DCE7EF;border-radius:10px;padding:20px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;margin-bottom:24px;box-shadow:0 6px 20px rgba(0,74,130,.055)}
+    .expert-brand{display:flex;align-items:center;gap:14px}
+    .expert-mark{width:52px;height:52px;background:linear-gradient(135deg,var(--uns-blue),var(--uns-cyan));color:#fff;border-radius:8px;display:grid;place-items:center;font-weight:950;font-size:18px}
+    .expert-copy strong{display:block;color:var(--uns-teal);font-size:18px;font-weight:800}.expert-copy span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+    .expert-search-box{display:flex;min-width:380px;height:42px;border:1px solid #C7DAE7;border-radius:5px;overflow:hidden;background:#fff}
+    .expert-search-box input{flex:1;border:0;padding:0 14px;font-size:12px;outline:none;color:var(--ink)}
+    .expert-search-box button{width:48px;border:0;background:var(--uns-blue);color:#fff;cursor:pointer;font-size:15px;transition:.15s ease}
+    .expert-search-box button:hover{background:var(--uns-blue-3)}
+
+    .faculty-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 22px}
+    .faculty-stat{background:#fff;border:1px solid var(--line);border-radius:8px;padding:15px;text-align:center}
+    .faculty-stat strong{display:block;font-size:24px;color:var(--uns-blue);line-height:1;font-weight:900}
+    .faculty-stat span{font-size:10px;color:var(--muted);font-weight:800}
+
+    .faculty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .person{background:#fff;border:1px solid var(--line);border-radius:9px;padding:19px;position:relative;overflow:hidden;transition:.18s ease;display:flex;flex-direction:column}
+    .person:before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--uns-blue),var(--uns-cyan))}
+    .person:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,73,132,.10)}
+    .person-head{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .avatar{width:45px;height:45px;border-radius:50%;background:#E9F4FB;color:var(--uns-blue);border:2px solid #CFE7F5;display:grid;place-items:center;font-weight:950;font-size:12px;flex:0 0 auto}
+    .person h3{margin:0;color:#116F9A;font-size:13px;line-height:1.35;font-weight:800}.person p{margin:5px 0 0;font-size:10.5px;color:var(--muted)}
+    .chips{margin-top:auto;padding-top:10px}
+    .expert-chip{display:inline-flex;padding:4px 8px;border-radius:3px;background:#F2F8FC;color:#4B6C80;font-size:9px;font-weight:800;margin:3px 3px 0 0}
+    .faculty-cta{margin-top:22px;display:flex;justify-content:center}
+
+    /* --- Potret Lulusan Terbaik & Testimoni --- */
+    .testimonials-section{background:#fff}
+    .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .testi-card{background:linear-gradient(145deg,#005AA8 0%,#0074D6 100%);color:#fff;border-radius:14px;padding:28px;box-shadow:0 12px 32px rgba(0,73,132,.16);position:relative;display:flex;flex-direction:column;justify-content:space-between}
+    .testi-card.mahasiswa{background:linear-gradient(145deg,#0284C7 0%,#0EA5E9 100%)}
+    .testi-tag{display:inline-flex;align-items:center;gap:6px;background:var(--uns-yellow);color:#142B3B;padding:4px 10px;border-radius:4px;font-size:10.5px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;align-self:flex-start;margin-bottom:16px}
+    .testi-quote{font-size:13.5px;line-height:1.65;color:#F0F9FF;font-style:italic;margin-bottom:20px}
+    .testi-author{display:flex;align-items:center;gap:14px;border-top:1px solid rgba(255,255,255,.2);padding-top:16px}
+    .author-img{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--uns-blue);display:grid;place-items:center;font-weight:900;font-size:14px;border:2px solid var(--uns-yellow)}
+    .author-info strong{display:block;font-size:14px;color:#fff;font-weight:800}.author-info span{font-size:11px;color:#DDF4FF}
+
+    .best-graduate{background:linear-gradient(90deg,#FFFDF0,#FFF9DB);border:2px solid var(--uns-yellow);border-radius:14px;padding:26px;margin-bottom:32px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;box-shadow:0 8px 24px rgba(245,201,31,.15)}
+    .grad-badge{background:var(--uns-yellow);color:#142B3B;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:900;display:inline-block;margin-bottom:8px}
+    .grad-photo{width:86px;height:86px;border-radius:50%;background:var(--uns-blue);color:#fff;display:grid;place-items:center;font-size:30px;font-weight:900;border:4px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+    .grad-info h4{margin:0 0 4px;font-size:18px;color:#0F5B80;font-weight:800}.grad-info p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.5}
+    .scopus-badge{display:inline-flex;align-items:center;gap:6px;background:#0369A1;color:#fff;padding:3px 10px;border-radius:4px;font-size:10.5px;font-weight:800;margin-top:8px}
+
+    /* --- Peluang Karir & Fasilitas --- */
+    .career-facility{background:var(--soft)}
+    .cf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .cf-box{background:#fff;border-radius:12px;padding:28px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(0,70,120,.04)}
+    .cf-box h3{margin:0 0 16px;color:var(--uns-teal);font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px}
+    .cf-box h3 span{width:32px;height:32px;border-radius:6px;background:#E0F2FE;color:var(--uns-blue);display:grid;place-items:center;font-size:15px}
+    .cf-items{display:grid;gap:12px}
+    .cf-item{padding:12px 14px;background:#F8FAFC;border-left:4px solid var(--uns-cyan);border-radius:0 6px 6px 0;font-size:13px;font-weight:700;color:#1E293B}
+
+    /* --- SPMB Information --- */
+    .spmb-info{background:#fff}
+    .spmb-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+    .spmb-stat{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:10px;padding:21px 20px;background:#fff;box-shadow:0 5px 18px rgba(0,70,120,.045)}
+    .spmb-stat:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--uns-blue),var(--uns-cyan))}
+    .spmb-stat strong{display:block;color:var(--uns-blue);font-size:24px;line-height:1.1;margin-bottom:5px;font-weight:900}.spmb-stat span{font-size:11px;color:var(--muted);font-weight:700}
+    .spmb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+    .info-card{border:1px solid var(--line);border-radius:10px;padding:25px;background:#F9FCFE}
+    .info-card h3{margin:0 0 7px;color:var(--uns-teal);font-size:20px;font-weight:800}.info-card>p{margin:0 0 18px;color:var(--muted);font-size:12px}
+    .flow{display:grid;gap:0;counter-reset:step}
+    .flow-step{position:relative;padding:13px 12px 13px 52px;border-top:1px solid #DCE8F0;font-size:11px;color:#536777;min-height:48px}
+    .flow-step:first-child{border-top:0}.flow-step:before{counter-increment:step;content:counter(step);position:absolute;left:7px;top:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--uns-blue);color:#fff;font-weight:950;font-size:10px}
+    .flow-step strong{display:block;color:#174F70;font-size:11.5px;font-weight:800}
+    .requirement-list{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .requirement{border:1px solid #DCE8F0;border-radius:7px;padding:12px;background:#fff;font-size:10.5px;color:var(--muted)}
+    .requirement strong{display:block;color:var(--uns-blue);font-size:11px;margin-bottom:2px;font-weight:800}
+    .official-note{margin-top:20px;padding:15px 17px;background:#EEF8FD;border-left:4px solid var(--uns-blue);border-radius:5px;color:#456272;font-size:11px;line-height:1.6}
+    .official-note strong{color:var(--uns-teal);font-weight:800}
+    .source-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+
+    /* --- CTA Promo Block --- */
+    .cta-section{padding:64px 0;background:#fff}
+    .cta-box{background:linear-gradient(90deg,#0875D0,#039DE0);color:#fff;border-radius:10px;padding:38px 42px;border-bottom:6px solid var(--uns-yellow);display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:0 14px 35px rgba(0,90,170,.16)}
+    .cta-box h2{font-size:30px;line-height:1.18;margin:0 0 7px;font-weight:800}.cta-box p{font-size:12.5px;margin:0;color:#EAF7FF;max-width:680px}.cta-actions{display:flex;gap:9px}
+
+    /* --- UNS Dark Footer --- */
+    footer{background:var(--footer);color:#fff;border-top:5px solid var(--uns-yellow);padding:42px 0 20px}
+    .footer-portals{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;padding-bottom:30px;border-bottom:1px solid #343434}
+    .portal{font-size:20px;font-weight:950;color:#F5F5F5;letter-spacing:-.02em;transition:.15s ease}.portal:hover{color:var(--uns-yellow)}
+    .portal small{display:block;font-size:8px;color:#AFAFAF;margin-top:3px;letter-spacing:.04em;font-weight:600}
+    .foot-grid{display:grid;grid-template-columns:1.35fr .7fr .7fr;gap:52px;padding:34px 0 22px}
+    .foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+    .foot-mark{width:50px;height:50px;padding:4px;border-radius:50%;background:#ffffff;object-fit:contain;display:grid;place-items:center;overflow:hidden;flex:0 0 auto}
+    .logo-img-foot{width:100%;height:100%;object-fit:contain;display:block}
+    .foot-brand strong{font-size:19px;line-height:1.05;font-weight:800}.foot-text{font-size:10px;color:#C5C5C5;max-width:440px;line-height:1.6}.foot-title{font-size:12px;font-weight:900;margin-bottom:9px;color:var(--uns-yellow)}.foot-links{display:grid;gap:6px;font-size:10px;color:#D0D0D0}.foot-links a:hover{color:var(--uns-yellow)}
+    .social-links{display:flex;gap:10px;margin-top:14px}
+    .social-icon{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:12px;color:#fff;transition:.15s ease}
+    .social-icon:hover{background:var(--uns-yellow);color:#142B3B}
+    .copyright{text-align:center;border-top:1px solid #343434;padding-top:16px;font-size:9px;color:#BEBEBE}
+
+    .mobile-cta{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:100;background:var(--uns-yellow);color:#17364B;border-radius:6px;padding:12px 16px;text-align:center;font-weight:950;box-shadow:0 13px 35px rgba(0,0,0,.24)}
+
+    /* --- Responsive Breakpoints --- */
+    @media(max-width:1024px){
+      .header-search{min-width:220px}
+      .program-menu{gap:20px}.hero-inner{grid-template-columns:1fr;gap:28px}.hero-card{max-width:650px}
+      .accredit-grid,.core-grid,.cf-grid{grid-template-columns:1fr}
+      .highlight-grid,.poster-grid,.faculty-stats{grid-template-columns:repeat(2,1fr)}.feature-grid,.faculty-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}
+      .spmb-summary{grid-template-columns:repeat(3,1fr)}.spmb-grid{grid-template-columns:1fr}
+      .path-grid{grid-template-columns:240px 1fr}
+      .expert-banner{grid-template-columns:1fr}.expert-search-box{min-width:0;width:100%}
+      .cta-box{grid-template-columns:1fr}.footer-portals{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:850px){
+      .program-nav .container{height:auto;min-height:46px;padding:8px 0}
+      .program-menu{width:100%;gap:12px;padding:4px 0}
+      .program-menu a{background:rgba(255,255,255,.14);padding:5px 12px;border-radius:4px;font-size:11px}
+      .program-menu a:hover, .program-menu a:active{background:var(--uns-yellow);color:#142B3B}
+      .path-grid{grid-template-columns:1fr}
+      .tab-list{grid-template-columns:repeat(3,1fr);overflow-x:auto}
+      .tab-btn{padding:12px;font-size:11px}
+      .tab-btn small{display:none}
+      .foot-grid{grid-template-columns:1fr;gap:28px}
+    }
+    @media(max-width:640px){
+      .container{width:min(calc(100% - 24px),var(--max))}
+      .header-main{height:68px;gap:12px}.header-search{display:none}.brand-copy strong{font-size:13.5px}.brand-copy span{font-size:9.5px}.logo-box{width:44px;height:44px;padding:4px}
+      .program-name{font-size:11.5px}.nav-cta{font-size:10px;padding:6px 12px}
+      .hero-inner{padding:44px 0 54px}.hero h1{font-size:34px}.hero p{font-size:14.5px}.hero-actions{display:grid;width:100%}.btn{width:100%}
+      .accredit-row{grid-template-columns:1fr;gap:3px}.accredit-period{grid-template-columns:1fr}
+      section{padding:52px 0}.highlight-grid,.poster-grid,.faculty-stats,.feature-grid,.faculty-grid,.testi-grid,.path-points,.requirement-list,.spmb-summary{grid-template-columns:1fr}
+      .tab-list{grid-template-columns:1fr}.tab-btn small{display:block}.path-panel{padding:22px}
+      .cooperation-box{grid-template-columns:1fr}.cooperation-badge{white-space:normal}
+      .best-graduate{grid-template-columns:1fr;text-align:center;padding:20px}.grad-photo{margin:0 auto}
+      .expert-banner{padding:16px}.expert-brand{align-items:flex-start}.expert-mark{width:44px;height:44px}.expert-search-box{height:40px}
+      .cta-box{padding:28px 22px}.cta-actions{display:grid;width:100%}.footer-portals{grid-template-columns:repeat(2,1fr)}
+      .mobile-cta{display:block}body{padding-bottom:70px}
+    }
+    @media(max-width:420px){
+      .highlight-grid,.hero-mini-grid,.footer-portals{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Program Nav (Di Atas Main Header dengan Underline Kuning) -->
+  <nav class="program-nav" aria-label="Navigasi program studi">
+    <div class="container">
+      <div class="program-name">S3 ILMU PENDIDIKAN</div>
+      <div class="program-menu">
+        <a href="#profil">PROFIL</a>
+        <a href="#core-study">CORE STUDY</a>
+        <a href="#jalur">JALUR MASUK</a>
+        <a href="#akreditasi">AKREDITASI</a>
+        <a href="#dosen">DOSEN & KEPAKARAN</a>
+        <a href="#testimoni">TESTIMONI</a>
+      </div>
+      <a class="nav-cta" href="https://spmb.uns.ac.id/pendaftar/dashboard/index" target="_blank" rel="noopener">DAFTAR ↗</a>
+    </div>
+  </nav>
+
+  <!-- Main Blue Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a class="brand" href="#top" aria-label="Pascasarjana FKIP UNS">
+        <div class="logo-box">
+          <img src="logounsnobg.png" alt="Logo Universitas Sebelas Maret" class="logo-img" />
+        </div>
+        <div class="brand-copy">
+          <strong>PASCASARJANA FKIP UNS</strong>
+          <span>Universitas Sebelas Maret · Surakarta</span>
+        </div>
+      </a>
+      <a class="header-search" href="https://expert.uns.ac.id/" target="_blank" rel="noopener" aria-label="Cari kepakaran di Expert UNS">
+        <span>Cari pakar S3 Ilmu Pendidikan...</span><b>⌕</b>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Banner Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <div class="breadcrumbs">FKIP UNS / Pascasarjana / Program Doktoral (S3) / Ilmu Pendidikan</div>
+          <div class="hero-kicker">Program Doktoral (S3)</div>
+          <h1 id="hero-title">Doktor <span>Ilmu Pendidikan</span></h1>
+          <p>Mencetak doktor, akademisi, dan pengembang kebijakan pendidikan yang unggul, berkarakter, dan berreputasi internasional melalui penguatan publikasi Scopus, riset inovatif, dan kolaborasi global.</p>
+          <div class="hero-actions">
+            <a class="btn btn-yellow" href="https://spmb.uns.ac.id/pendaftar/dashboard/index" target="_blank" rel="noopener">DAFTAR SEKARANG →</a>
+            <a class="btn btn-outline" href="#jalur">JALUR MASUK & SYARAT</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Ringkasan S3 Ilmu Pendidikan">
+          <div class="hero-card-label">Pascasarjana FKIP <span class="tag">Doktor (S3)</span></div>
+          <h3>Ilmu Pendidikan</h3>
+          <p>Fokus studi interdisipliner mengintegrasikan Filsafat & Kebijakan Pendidikan, Desain Pembelajaran, Evaluasi Pendidikan, dan Pedagogik berbasis riset orisinal.</p>
+          <div class="hero-mini-grid">
+            <div class="hero-mini"><strong>Dr.</strong><span>Gelar yang didapatkan</span></div>
+            <div class="hero-mini"><strong>3 Tahun</strong><span>Rancangan masa studi (6 SMT)</span></div>
+            <div class="hero-mini"><strong>1 Bulan</strong><span>Rata-rata masa tunggu kerja alumni</span></div>
+            <div class="hero-mini"><strong>Unggul / A</strong><span>Akreditasi Lamdik & BAN-PT</span></div>
+          </div>
+          <div class="accred">★ Akreditasi UNGGUL · Fasilitas Multimedia Smart Classroom & Jurnal Reputasi Scopus</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Highlights Strip -->
+    <section class="highlights" aria-label="Ringkasan program">
+      <div class="container">
+        <div class="highlight-grid">
+          <div class="highlight"><strong>Dr.</strong><span>Gelar Akademik Doktor</span></div>
+          <div class="highlight"><strong>3 Tahun</strong><span>Panjang Masa Studi</span></div>
+          <div class="highlight"><strong>1 Bulan</strong><span>Masa Tunggu Kerja Alumni</span></div>
+          <div class="highlight"><strong>Unggul (A)</strong><span>Status Akreditasi Resmi</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Poster Summary Section -->
+    <section class="poster-summary" id="ringkasan-poster">
+      <div class="container">
+        <div class="section-title">
+          <h2>Profil Utama Program Studi</h2>
+          <div class="title-line"></div>
+          <p>Informasi inti S3 Ilmu Pendidikan sebagaimana ditampilkan pada profil riset dan kurikulum doktoral.</p>
+        </div>
+        <div class="poster-grid">
+          <article class="poster-card">
+            <h3>Core Study</h3>
+            <p><strong>Analisis Kebijakan, Desain Pembelajaran, Evaluasi, & Pedagogik</strong> sebagai fondasi utama riset disertasi.</p>
+          </article>
+          <article class="poster-card">
+            <h3>Kompetensi</h3>
+            <p>Mewujudkan kepribadian luhur mandiri, inovasi berbasis teknologi, serta berpikir kritis & <strong>publikasi bereputasi (Scopus)</strong>.</p>
+          </article>
+          <article class="poster-card">
+            <h3>Peluang Karir</h3>
+            <p>Lulusan dipersiapkan menjadi <strong>Akademisi & Peneliti</strong>, Pengembang Kurikulum/Kebijakan, dan Konsultan Pendidikan.</p>
+          </article>
+          <article class="poster-card">
+            <h3>Fasilitas</h3>
+            <p>Dukungan <strong>Smart Classroom AC, Akses Jurnal Internasional, Lab Pendidikan FKIP UNS</strong>, & Bimbingan Publikasi.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cooperation Banner -->
+    <section class="cooperation" id="mitra">
+      <div class="container">
+        <div class="cooperation-box">
+          <div>
+            <h3>Mitra Kerjasama</h3>
+            <p>Kerjasama akademik dan riset dengan Perguruan Tinggi Mitra Dalam & Luar Negeri (ASEAN, Jepang, Australia), Lembaga Penelitian & Kebijakan Pendidikan, Sekolah Mitra, serta Organisasi Pendidikan Internasional seperti SEAMEO.</p>
+          </div>
+          <div class="cooperation-badge">Kerjasama ASEAN, Jepang, Australia & SEAMEO</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Study & Competency Section -->
+    <section id="profil" class="core-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Fokus Studi & Kompetensi Utama</h2>
+          <div class="title-line"></div>
+          <p>Program Studi S3 Ilmu Pendidikan FKIP UNS memberikan kurikulum komprehensif yang dirancang untuk membangun kepemimpinan akademik, filsafat kependidikan, dan kepakaran riset di tingkat nasional maupun internasional.</p>
+        </div>
+
+        <div class="core-grid" id="core-study">
+          <article class="core-card">
+            <div class="core-card-header">
+              <div class="core-icon">📚</div>
+              <div>
+                <h3>Core Study (Bidang Kajian Utama)</h3>
+                <p class="subtitle">Integrasi Keilmuan & Kebijakan Pendidikan</p>
+              </div>
+            </div>
+            <ul class="core-list">
+              <li><strong>Analisis Kebijakan Pendidikan:</strong> Kajian strategis perumusan, evaluasi, dan reformasi kebijakan sistem kependidikan nasional & global.</li>
+              <li><strong>Desain dan Model Pembelajaran:</strong> Penggalian model pedagogik terbarukan, metodologi pengajaran inovatif, dan integrasi teknologi digital.</li>
+              <li><strong>Evaluasi Pendidikan:</strong> Pengembangan instrumen asesmen, statistik pengukuran, dan evaluasi program pendidikan secara komprehensif.</li>
+              <li><strong>Pedagogik & Filsafat Pendidikan:</strong> Penguatan landasan filosofis kependidikan, etika profesi, dan kepribadian luhur pendidik.</li>
+            </ul>
+          </article>
+
+          <article class="core-card">
+            <div class="core-card-header">
+              <div class="core-icon">🎯</div>
+              <div>
+                <h3>Kompetensi Lulusan (KKNI Level 9)</h3>
+                <p class="subtitle">Capaian Akademik & Standar Kelulusan</p>
+              </div>
+            </div>
+            <ul class="core-list">
+              <li><strong>Kepribadian Luhur & Kemandirian:</strong> Mewujudkan kepribadian luhur yang mandiri, inovatif, dan berdaya saing tinggi di tingkat global.</li>
+              <li><strong>Pembelajaran Inovatif Berbasis Teknologi:</strong> Mengembangkan kajian yang menghasilkan temuan pembelajaran inovatif berbasis teknologi modern.</li>
+              <li><strong>Berpikir Kritis & Akuntabilitas:</strong> Menguasai kemampuan berpikir kritis, kreatif, serta memiliki akuntabilitas tinggi dalam kepemimpinan akademik.</li>
+              <li><strong>Publikasi Reputasi Internasional:</strong> Mampu menghasilkan riset orisinal yang dipublikasikan di jurnal internasional bereputasi (Scopus / Web of Science).</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Akreditasi Section -->
+    <section id="akreditasi" class="accreditation">
+      <div class="container">
+        <div class="section-title">
+          <h2>Akreditasi Program Studi</h2>
+          <div class="title-line"></div>
+          <p>S3 Ilmu Pendidikan FKIP UNS berstatus <strong>Unggul / Terakreditasi A</strong>. Informasi akreditasi ditampilkan sebagai bagian utama landing page agar calon mahasiswa dapat memverifikasi mutu program sebelum mendaftar.</p>
+        </div>
+        <div class="accredit-grid">
+          <article class="accredit-main" aria-label="Status akreditasi saat ini">
+            <div>
+              <div class="accredit-eyebrow">Status Akreditasi Saat Ini</div>
+              <div class="accredit-grade">UNGGUL</div>
+              <div class="accredit-score">Terakreditasi A / UNGGUL · LAMDIK & BAN-PT</div>
+              <h3>S3 Ilmu Pendidikan</h3>
+              <p>Fakultas Keguruan dan Ilmu Pendidikan · Universitas Sebelas Maret</p>
+            </div>
+            <div class="accredit-period">
+              <div><small>Jenjang Kelulusan</small><strong>Doktor (Dr.)</strong></div>
+              <div><small>Standar Kualifikasi</small><strong>KKNI Level 9</strong></div>
+            </div>
+          </article>
+
+          <article class="accredit-detail">
+            <h3>Detail Sertifikat Akreditasi</h3>
+            <p>Ringkasan status terbaru program studi dan pengakuan standar penjaminan mutu nasional.</p>
+            <div class="accredit-data">
+              <div class="accredit-row"><span>Lembaga Akreditasi</span><strong>Lembaga Akreditasi Mandiri Kependidikan (LAMDIK) / BAN-PT</strong></div>
+              <div class="accredit-row"><span>Gelar Kelulusan</span><strong>Doktor (Dr.)</strong></div>
+              <div class="accredit-row"><span>Masa Studi Acuan</span><strong>3 Tahun (6 Semester)</strong></div>
+              <div class="accredit-row"><span>Rata-Rata Masa Tunggu Kerja</span><strong>1 Bulan setelah lulus</strong></div>
+              <div class="accredit-row"><span>Website Resmi</span><strong>s3ip.fkip.uns.ac.id</strong></div>
+            </div>
+            <div class="accredit-actions">
+              <a class="btn btn-blue" href="https://akademik.fkip.uns.ac.id/s3-ilmu-pendidikan/" target="_blank" rel="noopener">AKREDITASI FKIP UNS ↗</a>
+              <a class="mini-link" href="https://layanan-lppmp.uns.ac.id/akreditasi/prodi/s-3-ilmu-pendidikan" target="_blank" rel="noopener">Detail Sertifikat UNS ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admission Pathways (Jalur Masuk) -->
+    <section id="jalur" class="pathways">
+      <div class="container">
+        <div class="section-title">
+          <h2>Jalur Masuk Pendaftaran</h2>
+          <div class="title-line"></div>
+          <p>Pilih skema pendaftaran doktor yang sesuai dengan latar belakang akademik, fokus riset, dan kebutuhan profesional Anda.</p>
+        </div>
+        <div class="path-grid">
+          <div class="tab-list" role="tablist" aria-label="Pilihan jalur masuk">
+            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="reguler">REGULER<small>Kuliah terstruktur, metodologi & disertasi</small></button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="riset">BY RESEARCH (DOKTOR PENELITIAN)<small>Fokus riset mandiri, bimbingan & publikasi Scopus</small></button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="rpl">RPL & KERJASAMA<small>Rekognisi Pembelajaran Lampau & beasiswa instansi</small></button>
+          </div>
+          <div>
+            <article class="path-panel active" data-panel="reguler">
+              <h3>Jalur Reguler Doktoral</h3>
+              <p>Jalur seleksi Doktor bagi calon mahasiswa yang mengikuti perkuliahan terstruktur, pendalaman teori filsafat & kebijakan pendidikan, metodologi riset ektensif, dilanjutkan ujian kualifikasi, proposal, dan penyelesaian disertasi.</p>
+              <div class="path-points">
+                <div class="path-point"><strong>Kualifikasi Pendaftar</strong><span>Lulusan Magister (S2) Kependidikan atau Non-Kependidikan yang relevan (IPK min 3.00).</span></div>
+                <div class="path-point"><strong>Seleksi Akademik</strong><span>Verifikasi berkas, Tes Potensi Akademik (TPA), Kemampuan Bahasa Inggris, serta Wawancara Proposal Rencana Riset.</span></div>
+                <div class="path-point"><strong>Masa Studi</strong><span>Dirancang 6 Semester (3 Tahun) dengan batas maksimal sesuai regulasi akademik UNS.</span></div>
+                <div class="path-point"><strong>Pendaftaran Online</strong><span>Pendaftaran resmi melalui portal SPMB Universitas Sebelas Maret.</span></div>
+              </div>
+              <div class="note">Catatan: Jadwal gelombang pendaftaran dibuka 2 kali dalam setahun (Semester Gasal & Genap). Selalu cek portal SPMB UNS untuk update tanggal penting.</div>
+              <div style="height:16px"></div>
+              <a class="btn btn-blue" href="https://spmb.uns.ac.id/pendaftar/dashboard/index" target="_blank" rel="noopener">DAFTAR JALUR REGULER ↗</a>
+            </article>
+
+            <article class="path-panel" data-panel="riset">
+              <h3>Doktor Jalur Penelitian (By Research)</h3>
+              <p>Diperuntukkan bagi praktisi, dosen, atau peneliti yang memiliki rekam jejak publikasi ilmiah dan arah riset disertasi yang matang. Bebas dari kuliah tatap muka intensif, difokuskan pada bimbingan promotor dan luaran Scopus.</p>
+              <div class="path-points">
+                <div class="path-point"><strong>Calon Promotor</strong><span>Menentukan dan berkomunikasi dengan calon Promotor/Co-Promotor dari dosen pakar S3 Ilmu Pendidikan UNS.</span></div>
+                <div class="path-point"><strong>Draft Proposal Disertasi</strong><span>Melampirkan draft rancangan riset orisinal yang telah disetujui oleh calon pembimbing.</span></div>
+                <div class="path-point"><strong>Rekam Jejak Publikasi</strong><span>Memiliki Portofolio artikel jurnal ilmiah atau karya publikasi yang menjadi nilai tambah signifikan.</span></div>
+                <div class="path-point"><strong>Luaran Wajib</strong><span>Publikasi di Jurnal Internasional Bereputasi (Scopus) dan Disertasi.</span></div>
+              </div>
+              <div class="note">Sesuai Pedoman Magister & Doktor Jalur Penelitian UNS. Sertakan surat rekomendasi calon pembimbing saat mengunggah berkas.</div>
+              <div style="height:16px"></div>
+              <div class="source-links">
+                <a class="btn btn-blue" href="https://spmb.uns.ac.id/jalur-masuk/jenjang?jenjang=s2-s3" target="_blank" rel="noopener">CEK JALUR S3 PENELITIAN ↗</a>
+                <a class="mini-link" href="https://expert.uns.ac.id/" target="_blank" rel="noopener">Cari Calon Promotor di Expert UNS ↗</a>
+              </div>
+            </article>
+
+            <article class="path-panel" data-panel="rpl">
+              <h3>Jalur RPL & Kemitraan Beasiswa</h3>
+              <p>Program Rekognisi Pembelajaran Lampau (RPL) dan skema beasiswa kerjasama bagi instansi pemerintah, BUMN, perguruan tinggi mitra, serta penerima Beasiswa LPDP / Diktiristek / UNS.</p>
+              <div class="path-points">
+                <div class="path-point"><strong>Skema RPL</strong><span>Pengakuan atas pengalaman kerja, karya ilmiah, dan riset terdahulu untuk mengonversi SKS perkuliahan.</span></div>
+                <div class="path-point"><strong>Mitra Beasiswa</strong><span>Dukungan penuh untuk mahasiswa penerima Beasiswa LPDP, BPI Kemendikbud, Beasiswa UNS, dan Beasiswa Instansi Mitra.</span></div>
+                <div class="path-point"><strong>Kerjasama Instansi</strong><span>Kesempatan bagi staf dosen/peneliti dari perguruan tinggi mitra atau lembaga pemerintah/SEAMEO.</span></div>
+                <div class="path-point"><strong>Sandwich Program</strong><span>Fasilitas riset kolaborasi di Perguruan Tinggi Luar Negeri mitra UNS (ASEAN, Jepang, Australia).</span></div>
+              </div>
+              <div class="note">Konsultasikan skema beasiswa dan RPL langsung dengan Pengelola Pascasarjana FKIP UNS atau melalui sekretariat prodi.</div>
+              <div style="height:16px"></div>
+              <a class="btn btn-blue" href="https://spmb.uns.ac.id/" target="_blank" rel="noopener">INFORMASI BEASISWA SPMB ↗</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty & Experts Section -->
+    <section id="dosen" class="faculty">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pengajar & Keahlian Dosen</h2>
+          <div class="title-line"></div>
+          <p>Didukung oleh Guru Besar (Profesor) dan Doktor berreputasi internasional dengan keahlian di bidang Filsafat Pendidikan, Evaluasi, Teknologi Pembelajaran, Kebijakan, dan Metodologi.</p>
+        </div>
+
+        <a class="expert-banner" href="https://expert.uns.ac.id/" target="_blank" rel="noopener">
+          <div class="expert-brand">
+            <div class="expert-mark">E</div>
+            <div class="expert-copy"><strong>Expert UNS</strong><span>Temukan pakar, bidang keahlian, publikasi, dan rekam jejak penelitian Universitas Sebelas Maret.</span></div>
+          </div>
+          <div class="expert-search-box">
+            <input type="text" id="facultySearch" placeholder="Cari nama dosen atau bidang keahlian (misal: Evaluasi, Kebijakan, Sains)...">
+            <button type="button" aria-label="Cari">⌕</button>
+          </div>
+        </a>
+
+        <div class="faculty-stats" aria-label="Komposisi pengajar sesuai profil program studi">
+          <div class="faculty-stat"><strong>12+</strong><span>Guru Besar Pakar</span></div>
+          <div class="faculty-stat"><strong>100%</strong><span>Kualifikasi Doktor (S3)</span></div>
+          <div class="faculty-stat"><strong>Scopus</strong><span>Publikasi Bereputasi</span></div>
+          <div class="faculty-stat"><strong>Global</strong><span>Jejaring Perguruan Tinggi</span></div>
+        </div>
+        <div class="official-note" style="margin:0 0 20px"><strong>Pengajar & Keahlian:</strong> Relevan dengan bidang keahlian Pendidikan, Evaluasi, Filsafat, Kebijakan, Teknologi Pembelajaran, dan Sains. Didukung oleh Guru Besar bereputasi nasional & internasional.</div>
+
+        <div class="faculty-grid" id="facultyList">
+          <article class="person" data-expertise="bahasa metodologi">
+            <div class="person-head">
+              <div class="avatar">JN</div>
+              <div>
+                <h3>Prof. Dr. Joko Nurkamto, M.Pd.</h3>
+                <p>Guru Besar · Pendidikan Bahasa Inggris & Metodologi</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Pendidikan Bahasa Inggris</span>
+              <span class="expert-chip">Metodologi Research</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="evaluasi penelitian">
+            <div class="person-head">
+              <div class="avatar">MA</div>
+              <div>
+                <h3>Prof. Dr. M. Akhyar, M.Pd.</h3>
+                <p>Guru Besar · Penelitian dan Evaluasi Pendidikan</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Penelitian Pendidikan</span>
+              <span class="expert-chip">Evaluasi Pendidikan</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="filsafat">
+            <div class="person-head">
+              <div class="avatar">FH</div>
+              <div>
+                <h3>Prof. M. Furqon Hidayatullah, M.Pd.</h3>
+                <p>Guru Besar · Filsafat Pendidikan</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Filsafat Pendidikan</span>
+              <span class="expert-chip">Pedagogik</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="kebijakan">
+            <div class="person-head">
+              <div class="avatar">RK</div>
+              <div>
+                <h3>Prof. Dr. Ravik Karsidi, M.S.</h3>
+                <p>Guru Besar · Kebijakan Pendidikan</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Kebijakan Pendidikan</span>
+              <span class="expert-chip">Sosiologi Pendidikan</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="sains">
+            <div class="person-head">
+              <div class="avatar">SJ</div>
+              <div>
+                <h3>Prof. Dr. rer.nat. Sajidan, M.Si.</h3>
+                <p>Guru Besar · Pendidikan Pembelajaran Sains</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Pembelajaran Sains</span>
+              <span class="expert-chip">Inovasi Biologi</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="inklusi">
+            <div class="person-head">
+              <div class="avatar">SN</div>
+              <div>
+                <h3>Prof. Dr. Sunardi, M.Sc.</h3>
+                <p>Guru Besar · Pendidikan Inklusi</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Pendidikan Inklusi</span>
+              <span class="expert-chip">Kebutuhan Khusus</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="statistika">
+            <div class="person-head">
+              <div class="avatar">SW</div>
+              <div>
+                <h3>Prof. Dr. Siswandari, M.Stat.</h3>
+                <p>Guru Besar · Statistika dan Pengukuran</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Statistika Pendidikan</span>
+              <span class="expert-chip">Pengukuran Asesmen</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="manajemen">
+            <div class="person-head">
+              <div class="avatar">SK</div>
+              <div>
+                <h3>Prof. Sukarmin, S.Pd., M.Si., Ph.D.</h3>
+                <p>Guru Besar · Manajemen Pendidikan</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Manajemen Pendidikan</span>
+              <span class="expert-chip">Kepemimpinan Sekolah</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="evaluasi">
+            <div class="person-head">
+              <div class="avatar">SY</div>
+              <div>
+                <h3>Prof. Dr. Sri Yamtinah, M.Pd.</h3>
+                <p>Guru Besar · Penelitian dan Evaluasi Pendidikan</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Penelitian & Evaluasi</span>
+              <span class="expert-chip">Asesmen Pembelajaran</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="teknologi">
+            <div class="person-head">
+              <div class="avatar">AE</div>
+              <div>
+                <h3>Prof. Dr. Agus Effendi, M.Pd.</h3>
+                <p>Guru Besar · Teknologi Pendidikan dan Pembelajaran</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Teknologi Pendidikan</span>
+              <span class="expert-chip">Media Pembelajaran</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="kewarganegaraan">
+            <div class="person-head">
+              <div class="avatar">WN</div>
+              <div>
+                <h3>Prof. Dr. Winarno, M.Si.</h3>
+                <p>Guru Besar · Pendidikan Kewarganegaraan</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Pendidikan Pancasila & PKn</span>
+              <span class="expert-chip">Karakter Bangsa</span>
+            </div>
+          </article>
+
+          <article class="person" data-expertise="matematika">
+            <div class="person-head">
+              <div class="avatar">MD</div>
+              <div>
+                <h3>Prof. Dr. Mardiyana, M.Si.</h3>
+                <p>Guru Besar · Pendidikan dan Pembelajaran Matematika</p>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="expert-chip">Pendidikan Matematika</span>
+              <span class="expert-chip">Desain Didaktis</span>
+            </div>
+          </article>
+        </div>
+        <div class="faculty-cta">
+          <a class="btn btn-blue" href="https://expert.uns.ac.id/" target="_blank" rel="noopener">TELUSURI DOSEN DI EXPERT UNS ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimoni" class="testimonials-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Potret Lulusan & Testimoni</h2>
+          <div class="title-line"></div>
+          <p>Kisah sukses alumni dan pengalaman mahasiswa aktif selama menempuh program doktoral S3 Ilmu Pendidikan FKIP UNS.</p>
+        </div>
+
+        <div class="best-graduate">
+          <div style="text-align:center">
+            <div class="grad-photo">TS</div>
+            <div class="scopus-badge">Mahasiswa 2023</div>
+          </div>
+          <div class="grad-info">
+            <span class="grad-badge">Potret Mahasiswa / Lulusan Terbaik</span>
+            <h4>Taufik Subhanul – Angkatan 2023</h4>
+            <p style="color:#0F5B80;font-weight:700;margin-bottom:6px">Mahasiswa Program Doktor S3 Ilmu Pendidikan UNS</p>
+            <p><em>"Belajar di Program Doktor Ilmu Pendidikan FKIP UNS memberi saya pengalaman akademik yang luar biasa. Bimbingan promotor dan tim dosen sangat intensif, tidak hanya pada aspek teoritis, tetapi juga dalam penulisan artikel internasional. Saya merasa berkembang menjadi peneliti yang lebih kritis, sistematis, dan produktif."</em></p>
+          </div>
+        </div>
+
+        <div class="testi-grid">
+          <article class="testi-card">
+            <div>
+              <span class="testi-tag">Testimoni Alumni</span>
+              <p class="testi-quote">
+                "Menempuh studi di Program Doktor Ilmu Pendidikan FKIP UNS telah mengubah cara pandang saya terhadap pendidikan, dari sekadar praktik mengajar menjadi penelitian dan inovasi berbasis riset. Pengalaman ini menumbuhkan ketekunan, kolaborasi, dan semangat untuk berkontribusi bagi kemajuan pendidikan Indonesia."
+              </p>
+            </div>
+            <div class="testi-author">
+              <div class="author-img">RP</div>
+              <div class="author-info">
+                <strong>Dr. Ryzal Perdana, M.Pd. – Angkatan 2016</strong>
+                <span>Dosen Universitas Lampung & Ketua YP UNILA</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card mahasiswa">
+            <div>
+              <span class="testi-tag" style="background:#FFF9D6;color:#0F5B80">Testimoni Mahasiswa</span>
+              <p class="testi-quote">
+                "Belajar di Program Doktor Ilmu Pendidikan FKIP UNS memberi saya pengalaman akademik yang luar biasa. Bimbingan promotor dan tim dosen sangat intensif, tidak hanya pada aspek teoritis, tetapi juga dalam penulisan artikel internasional. Saya merasa berkembang menjadi peneliti yang lebih kritis, sistematis, dan produktif."
+              </p>
+            </div>
+            <div class="testi-author">
+              <div class="author-img">TS</div>
+              <div class="author-info">
+                <strong>Taufik Subhanul – Angkatan 2023</strong>
+                <span>Mahasiswa Aktif S3 Ilmu Pendidikan</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career & Facilities -->
+    <section class="career-facility">
+      <div class="container">
+        <div class="section-title">
+          <h2>Peluang Karir & Fasilitas Unggulan</h2>
+          <div class="title-line"></div>
+          <p>Lulusan Doktor Ilmu Pendidikan dipersiapkan menjadi pemimpin akademik, pengembang kurikulum, dan penentu kebijakan kependidikan.</p>
+        </div>
+
+        <div class="cf-grid">
+          <div class="cf-box">
+            <h3><span>💼</span> Peluang Karir Lulusan</h3>
+            <div class="cf-items">
+              <div class="cf-item">Akademisi & Peneliti Pendidikan di Perguruan Tinggi</div>
+              <div class="cf-item">Pengembang Kurikulum & Kebijakan Pendidikan Nasional/Lokal</div>
+              <div class="cf-item">Konsultan Pendidikan Sektor Publik & Swasta</div>
+              <div class="cf-item">Praktisi Inovasi Pembelajaran Berbasis Teknologi</div>
+              <div class="cf-item">Manajer & Pengelola Lembaga Pendidikan / SEAMEO</div>
+            </div>
+          </div>
+
+          <div class="cf-box">
+            <h3><span>🏛️</span> Fasilitas & Program Pendukung</h3>
+            <div class="cf-items">
+              <div class="cf-item" style="border-left-color:var(--uns-yellow)">Ruang Kelas & Diskusi Ber-AC dengan Fasilitas Multimedia Smart Classroom</div>
+              <div class="cf-item" style="border-left-color:var(--uns-yellow)">Akses ke Jurnal Internasional Bereputasi & Repositori UNS</div>
+              <div class="cf-item" style="border-left-color:var(--uns-yellow)">Laboratorium Pendidikan & Pusat Penelitian FKIP UNS</div>
+              <div class="cf-item" style="border-left-color:var(--uns-yellow)">Bimbingan & Pendampingan Publikasi Internasional (Scopus)</div>
+              <div class="cf-item" style="border-left-color:var(--uns-yellow)">Kolaborasi Riset Internasional (ASEAN, Jepang, Australia)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPMB Information -->
+    <section id="spmb" class="spmb-info">
+      <div class="container">
+        <div class="section-title">
+          <h2>Informasi Pendaftaran SPMB UNS</h2>
+          <div class="title-line"></div>
+          <p>Panduan alur pendaftaran daring dan persiapan berkas persyaratkan bagi calon mahasiswa Doktoral S3 Ilmu Pendidikan.</p>
+        </div>
+
+        <div class="spmb-summary">
+          <div class="spmb-stat">
+            <strong>3 Tahun</strong>
+            <span>Rancangan Penyelesaian Studi Doktor (6 SMT)</span>
+          </div>
+          <div class="spmb-stat">
+            <strong>1 Bulan</strong>
+            <span>Rata-Rata Masa Tunggu Kerja Alumni</span>
+          </div>
+          <div class="spmb-stat">
+            <strong>2 Gelombang</strong>
+            <span>Periode Penerimaan (Semester Gasal & Genap)</span>
+          </div>
+        </div>
+
+        <div class="spmb-grid">
+          <article class="info-card">
+            <h3>Alur Pendaftaran Online</h3>
+            <p>Prosedur pendaftaran terpusat melalui portal resmi SPMB UNS.</p>
+            <div class="flow">
+              <div class="flow-step">
+                <strong>1. Registrasi Akun Pendaftaran</strong>
+                Buka portal SPMB Pascasarjana UNS dan isi formulir pendaftaran awal.
+              </div>
+              <div class="flow-step">
+                <strong>2. Pembayaran Biaya Seleksi</strong>
+                Lakukan pembayaran melalui bank mitra UNS (BNI, Mandiri, BRI, BTN) menggunakan nomor pendaftaran.
+              </div>
+              <div class="flow-step">
+                <strong>3. Unggah Berkas & Proposal Riset</strong>
+                Login kembali untuk mengunggah ijazah, transkrip, sertifikat TPA/TOEFL, rekomendasi, dan draft proposal riset.
+              </div>
+              <div class="flow-step">
+                <strong>4. Verifikasi Panitia SPMB</strong>
+                Panitia melakukan validasi dokumen. Setelah lolos, cetak Kartu Tanda Peserta Ujian.
+              </div>
+              <div class="flow-step">
+                <strong>5. Tahap Seleksi & Wawancara Proposal</strong>
+                Mengikuti ujian wawancara proposal disertasi dengan tim penguji/calon promotor.
+              </div>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>Persyaratan Berkas Utama</h3>
+            <p>Daftar kelengkapan dokumen yang wajib disiapkan sebelum mendaftar.</p>
+            <div class="requirement-list">
+              <div class="requirement">
+                <strong>Ijazah & Transkrip S2/S1</strong>
+                Minimal IPK 3.00 dari program studi terakreditasi.
+              </div>
+              <div class="requirement">
+                <strong>Sertifikat TPA / TBS</strong>
+                Sertifikat TPA Bappenas/UNS yang masih berlaku.
+              </div>
+              <div class="requirement">
+                <strong>Sertifikat Bahasa Inggris</strong>
+                TOEFL / IELTS / EAP UNS sesuai ambang batas yang ditentukan.
+              </div>
+              <div class="requirement">
+                <strong>2 Surat Rekomendasi</strong>
+                Dari pembimbing Magister atau atasan instansi kerja.
+              </div>
+              <div class="requirement">
+                <strong>Draft Proposal Disertasi</strong>
+                Rancangan riset orisinal bidang Ilmu Pendidikan.
+              </div>
+              <div class="requirement">
+                <strong>Surat Rekomendasi Promotor</strong>
+                Khusus pendaftar Jalur Penelitian (By Research).
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="official-note">
+          <strong>Catatan Resmi:</strong> Seluruh ketentuan mengenai biaya pendaftaran, jadwal ujian, dan ambang batas nilai mengikuti peraturan resmi panitia SPMB UNS yang berlaku pada gelombang berjalan.
+          <div class="source-links">
+            <a class="mini-link" href="https://spmb.uns.ac.id/jalur-masuk/jenjang?jenjang=s2-s3" target="_blank" rel="noopener">Syarat Pendaftaran S3 SPMB ↗</a>
+            <a class="mini-link" href="https://spmb.uns.ac.id/pendaftar/dashboard/index" target="_blank" rel="noopener">Dashboard SPMB UNS ↗</a>
+            <a class="mini-link" href="https://s3ip.fkip.uns.ac.id" target="_blank" rel="noopener">Website S3 Ilmu Pendidikan ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Siap Mengembangkan Karir Akademik & Gelar Doktor di UNS?</h2>
+            <p>Bergabunglah dengan Program Studi S3 Ilmu Pendidikan FKIP Universitas Sebelas Maret. Daftarkan diri Anda pada gelombang pendaftaran SPMB yang sedang dibuka!</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-yellow" href="https://spmb.uns.ac.id/pendaftar/dashboard/index" target="_blank" rel="noopener">DAFTAR SEKARANG →</a>
+            <a class="btn btn-outline" href="https://spmb.uns.ac.id/" target="_blank" rel="noopener">PORTAL SPMB</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- UNS Dark Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-portals">
+        <a class="portal" href="https://uns.ac.id/" target="_blank" rel="noopener">UNS<small>UNIVERSITAS SEBELAS MARET</small></a>
+        <a class="portal" href="https://fkip.uns.ac.id/" target="_blank" rel="noopener">FKIP<small>FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</small></a>
+        <a class="portal" href="https://spmb.uns.ac.id/" target="_blank" rel="noopener">SPMB<small>PENERIMAAN MAHASISWA BARU</small></a>
+        <a class="portal" href="https://expert.uns.ac.id/" target="_blank" rel="noopener">EXPERT<small>PORTAL KEPAKARAN UNS</small></a>
+        <a class="portal" href="https://s3ip.fkip.uns.ac.id" target="_blank" rel="noopener">S3IP<small>S3 ILMU PENDIDIKAN</small></a>
+      </div>
+
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">
+            <div class="foot-mark">
+              <img src="logounsnobg.png" alt="Logo Universitas Sebelas Maret" class="logo-img-foot" />
+            </div>
+            <strong>UNIVERSITAS<br>SEBELAS MARET</strong>
+          </div>
+          <div class="foot-text">
+            Program Studi S3 Ilmu Pendidikan · Pascasarjana Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Sebelas Maret.
+            <br>Jl. Ir. Sutami 36A Kentingan, Jebres, Surakarta, Jawa Tengah 57126.
+          </div>
+        </div>
+
+        <div>
+          <div class="foot-title">Layanan & Portal</div>
+          <div class="foot-links">
+            <a href="https://spmb.uns.ac.id/" target="_blank" rel="noopener">SPMB UNS Portal</a>
+            <a href="https://expert.uns.ac.id/" target="_blank" rel="noopener">Expert UNS Kepakaran</a>
+            <a href="https://s3ip.fkip.uns.ac.id" target="_blank" rel="noopener">Website S3 Ilmu Pendidikan</a>
+            <a href="https://fkip.uns.ac.id/" target="_blank" rel="noopener">Portal FKIP UNS</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="foot-title">Navigasi Landing</div>
+          <div class="foot-links">
+            <a href="#profil">Profil Program</a>
+            <a href="#core-study">Core Study & Kompetensi</a>
+            <a href="#jalur">Jalur Masuk</a>
+            <a href="#akreditasi">Akreditasi Program</a>
+            <a href="#dosen">Dosen & Kepakaran</a>
+            <a href="#testimoni">Testimoni Alumni</a>
+          </div>
+          <div class="social-links">
+            <a class="social-icon" href="https://s3ip.fkip.uns.ac.id" target="_blank" rel="noopener" aria-label="Website">🌐</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        Copyright © 2026 Program Studi S3 Ilmu Pendidikan FKIP Universitas Sebelas Maret · Landing Page
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Mobile CTA -->
+  <a class="mobile-cta" href="https://spmb.uns.ac.id/pendaftar/dashboard/index" target="_blank" rel="noopener">
+    DAFTAR S3 ILMU PENDIDIKAN →
+  </a>
+
+  <!-- Interactive Logic Script -->
+  <script>
+    // Tab switching logic for Admission Pathways (Jalur Masuk)
+    const buttons = document.querySelectorAll('[data-tab]');
+    const panels = document.querySelectorAll('[data-panel]');
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      const key = btn.dataset.tab;
+      buttons.forEach(b => {
+        const active = b === btn;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-selected', String(active));
+      });
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === key));
+    }));
+
+    // Interactive Filter for Dosen & Kepakaran
+    const searchInput = document.getElementById('facultySearch');
+    const facultyList = document.getElementById('facultyList');
+    if (searchInput && facultyList) {
+      const facultyCards = facultyList.querySelectorAll('.person');
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        facultyCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
